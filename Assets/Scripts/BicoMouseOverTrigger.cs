@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BicoMouseOverTrigger : MonoBehaviour
+public GameObject bicoText;
+
+public class MouseOverTrigger : MonoBehaviour
 {
     public Animator animator;
 
-    void Start()
-    { 
+    public void Start()
+    {
+        bicoText.SetActive(false);
         animator = this.GetComponent<Animator>();
     }
     void OnMouseEnter() 
     {
         Debug.Log("Something");
+        bicoText.SetActive(true);
         animator.SetBool("MouseOver", true);
     }
     void OnMouseExit() 
     {
+        bicoText.SetActive(false);
         animator.SetBool("MouseOver", false);
     }
 }
